@@ -1,7 +1,12 @@
+import Header from "../../components/Header";
+import Screen from "../../components/Screen";
+
+
 function Home() {
   return (
-    <div className="App">
-      <p> Opa</p>
+    <div>
+      <Header />      
+      <Screen />
     </div>
   );
 }

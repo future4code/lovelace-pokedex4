@@ -10,7 +10,7 @@ const Router = () => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/pokedex" component={Pokedex} />
-                <Route exact path="/details" component={Details} />
+                <Route exact path="/details/:id" component={Details} />
                 <Route>
                     <div>Erro 404 - Página não encontrada</div>
                 </Route>
