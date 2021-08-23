@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import pokeball from "../img/pokeball.png"
 
 const ContainerTitulo = styled.div`
   height: 150px;
@@ -6,18 +7,23 @@ const ContainerTitulo = styled.div`
   background-color: #f13c20;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   h1 {
     position: relative;
     left: 5vw;
     font-size: 4em;
     color: white;
   }
+  img {
+    width: 130px;
+    margin-right: 5vw;
+  }
 `;
 
 const NavBar = styled.nav`
   height: 70px;
   width: 100vw;
-  background-color: #4e4e4e;
+  background-color: #000000;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -32,10 +38,12 @@ const NavBar = styled.nav`
 
 function Header() {
   return (
-    <div className="App">
+    <div>
       <ContainerTitulo>
-        <h1>Pokelist</h1>
+        <h1>Pokedex</h1>
+        <img src={pokeball} alt="Imagem de uma Pokeball" />
       </ContainerTitulo>
+
       <NavBar>
         <h3>Pokedex</h3>
       </NavBar>
