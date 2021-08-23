@@ -1,12 +1,14 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react"
+import GlobalStyle from "./globalStyles"
+import Router from "./routes/Router"
 
 function App() {
   return (
-    <div className="App">
-      <p> Opa</p>
+    <div>
+      <GlobalStyle />
+      <Router />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
