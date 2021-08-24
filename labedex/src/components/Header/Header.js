@@ -18,35 +18,16 @@ const ContainerTitulo = styled.div`
     width: 130px;
     margin-right: 5vw;
   }
+  position: relative;
 `;
 
-const NavBar = styled.nav`
-  height: 70px;
-  width: 100vw;
-  background-color: #000000;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  h3 {
-    position: relative;
-    left: 5.5vw;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2em;
-  }
-`;
-
-function Header() {
+function Header(props) {
   return (
     <div>
       <ContainerTitulo>
-        <h1>Pokedex</h1>
+        <h1>{props.title}</h1>
         <img src={pokeball} alt="Imagem de uma Pokeball" />
       </ContainerTitulo>
-
-      <NavBar>
-        <h3>Pokedex</h3>
-      </NavBar>
     </div>
   );
 }
