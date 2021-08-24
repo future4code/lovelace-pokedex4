@@ -1,9 +1,8 @@
 import { useHistory, useParams } from 'react-router-dom'
 
 function Battle() {
-  const params = useParams()
+  const {idPokemon1, idPokemon2} = useParams()
 
-  console.log(params)
 
   return (
     <div className="App">
