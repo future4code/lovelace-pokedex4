@@ -21,6 +21,16 @@ function Screen(props) {
       {props.cardPokemon}
       {props.cardPokemon}
       {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
+      {props.cardPokemon}
     </ContainerMain>
   );
 }
