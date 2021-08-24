@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pokeball from "../img/pokeball.png"
+import pokeball from "../../img/pokeball.png";
 
 const ContainerTitulo = styled.div`
   height: 150px;
