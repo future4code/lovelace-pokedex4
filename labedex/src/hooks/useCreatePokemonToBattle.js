@@ -51,13 +51,14 @@ export function useCreatePokemon(id) {
             };
             newMoves.push(newMove);
           } catch (error) {
-            console.log("Erro ao buscar move:", i);
+            alert("Erro ao buscar move:", i);
           }
         }
 
         setMoves(newMoves);
       } catch (err) {
         console.log(err.response);
+        alert('Erro when search pokemon.')
       }
     };
 

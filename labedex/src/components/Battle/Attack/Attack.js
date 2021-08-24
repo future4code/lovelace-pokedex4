@@ -1,18 +1,16 @@
 import { damage } from '../../../tools/battle/damage'
 
 export default function Attack({ myPokemon, attack, setMessage }) {
-  const ataques = myPokemon.moves;
-  let pokemonName = myPokemon.name;
-  pokemonName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+  const moves = myPokemon.moves;
 
-  const handleClick = (ataque) => {
-    attack(damage(ataque.power, myPokemon.attack, myPokemon.level));
-    setMessage(`${pokemonName} ${ataque.name}! ` + ataque.effect);
+  const handleClick = (move) => {
+    attack(damage(move.power, myPokemon.attack, myPokemon.level));
+    setMessage(`${myPokemon.name} ${move.name}! ` + move.effect);
   };
 
-  const renderAtaques = ataques.map((ataque) => (
-    <button key={ataque.name} onClick={() => handleClick(ataque)}>
-      {ataque.name}
+  const renderAtaques = moves.map((move) => (
+    <button key={move.name} onClick={() => handleClick(move)}>
+      {move.name}
     </button>
   ));
 

@@ -2,7 +2,9 @@ import { useHistory, useParams } from 'react-router-dom'
 import BattleField from '../../components/Battle/BattleField.js/BattleField';
 import { useCreatePokemon } from '../../hooks/useCreatePokemonToBattle'
 import { defineLevel } from '../../tools/battle/defineLevel'
-import { getRandomPokemonId } from '../../tools/battle/getRandomPokemonId'
+
+import Header from '../../components/Header/Header'
+import {ContainerBattle} from './styled'
 
 function Battle() {
   const { idPokemon1, idPokemon2 } = useParams()
@@ -19,10 +21,10 @@ function Battle() {
 
 
   return (
-    <div className="App">
-      <p> Battle</p>
+    <ContainerBattle>
+      <Header />
       <BattleField myPokemon={myPokemon} hisPokemon={hisPokemon}/>
-    </div>
+    </ContainerBattle>
   );
 }
 

@@ -4,7 +4,10 @@ import StatusCard from "../StatusCard/StatusCard";
 import ControllsContainer from "../ControllsContainer/ControllsContainer";
 import PokemonImage from "../PokemonImage/PokemonImage";
 
+import { StyledBattleField, StyledImage } from './styled'
+
 export default function BattleField({ myPokemon, hisPokemon }) {
+
   const [myCurrentHp, setMyCurrentHp] = useState();
   const [hisCurrentHp, setHisCurrentHp] = useState();
   const [turn, setTurn] = useState({
@@ -40,15 +43,12 @@ export default function BattleField({ myPokemon, hisPokemon }) {
       setTimeout(() => {
         const attack = hisPokemon.attack;
         const level = hisPokemon.level;
-        let pokemonName = hisPokemon.name;
-        pokemonName =
-          pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
 
         const randIndex = Math.floor(Math.random() * 4);
         const { power, effect, name } = hisPokemon.moves[randIndex];
 
         hisAttack(damage(power, attack, level));
-        setMessageToHim(`${pokemonName} ${name}! ${effect}`);
+        setMessageToHim(`${hisPokemon.name} ${name}! ${effect}`);
       }, 2000);
     }
   }, [turn]);
@@ -59,21 +59,33 @@ export default function BattleField({ myPokemon, hisPokemon }) {
   }, [myCurrentHp, hisCurrentHp]);
 
   return (
-    <div>
-      <div style={{ display: "flex" }}>
-        <StatusCard pokemon={hisPokemon} currentHp={hisCurrentHp} />
-        <PokemonImage pokemon={hisPokemon} />
-      </div>
-      <div style={{ display: "flex" }}>
-        <PokemonImage pokemon={myPokemon} />
-        <StatusCard pokemon={myPokemon} currentHp={myCurrentHp} />
-      </div>
+    <StyledBattleField>
+      <StyledImage>
+        <div style={{ display: "flex", justifyContent: 'space-around' }}>
+          <StatusCard
+            pokemon={hisPokemon}
+            currentHp={hisCurrentHp}
+          />
+          <PokemonImage
+            pokemon={hisPokemon}
+          />
+        </div>
+        <div style={{ display: "flex", justifyContent: 'space-around' }}>
+          <PokemonImage
+            pokemon={myPokemon}
+          />
+          <StatusCard
+            pokemon={myPokemon}
+            currentHp={myCurrentHp}
+          />
+        </div>
+      </StyledImage>
       <ControllsContainer
         myPokemon={myPokemon}
         attack={myAttack}
         message={turn.message}
         setMessage={setMessageToMe}
       />
-    </div>
+    </StyledBattleField>
   );
 }

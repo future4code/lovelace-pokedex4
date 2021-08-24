@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 export default function StatusCard({ pokemon, currentHp }) {
-  const widthTamanho = 200;
+  const widthValue = 200;
   const totalHp = pokemon.hp * pokemon.level;
 
   const [color, setColor] = useState("green");
 
   useEffect(() => {
-    const porcentagem = currentHp / totalHp;
+    const percentage = currentHp / totalHp;
 
-    if (porcentagem > 0.6) setColor("green");
-    if (porcentagem <= 0.6 && porcentagem > 0.2) setColor("yellow");
-    else if (porcentagem <= 0.2) setColor("red");
+    if (percentage > 0.6) setColor("green");
+    if (percentage <= 0.6 && percentage > 0.2) setColor("yellow");
+    else if (percentage <= 0.2) setColor("red");
   }, [currentHp]);
 
   return (
@@ -29,14 +29,14 @@ export default function StatusCard({ pokemon, currentHp }) {
       <div
         style={{
           height: "20px",
-          width: `${widthTamanho}px`,
+          width: `${widthValue}px`,
           background: "gray"
         }}
       >
         <p
           style={{
             height: "20px",
-            width: `${widthTamanho * (currentHp / totalHp)}px`,
+            width: `${widthValue * (currentHp / totalHp)}px`,
             background: color
           }}
         ></p>
