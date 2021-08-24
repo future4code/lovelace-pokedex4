@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Details from "../pages/Details/Details"
 import Home from '../pages/Home/Home'
 import Pokedex from "../pages/Pokemon/Pokedex"
+import Battle from "../pages/Battle/Battle"
 
 const Router = () => {
     return (
@@ -11,6 +12,7 @@ const Router = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/pokedex" component={Pokedex} />
                 <Route exact path="/details/:id" component={Details} />
+                <Route exact path="/battle/:idPokemon1/:idPokemon2" component={Battle} />
                 <Route>
                     <div>Erro 404 - Página não encontrada</div>
                 </Route>
