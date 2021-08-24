@@ -1,6 +1,6 @@
 import CardPokemon from "../../components/CardPokemon/CardPokemon.js"
 import Header from "../../components/Header/Header.js"
-import { ContainerCardBatalha, ContainerCardPokedex, ContainerMainPokedex, ContainerMiniFotos, 
+import { ContainerCardBatalha, ContainerCardPokedex, ContainerMainPokedex, 
   DuasFotosEVersus, FundoMiniDireita, FundoMiniEsquerda } from "./styled.js"
 
 function Pokedex() {
