@@ -1,4 +1,5 @@
 import { damage } from '../../../tools/battle/damage'
+import { StyledButtons } from './styled'
 
 export default function Attack({ myPokemon, attack, setMessage }) {
   const moves = myPokemon.moves;
@@ -14,5 +15,5 @@ export default function Attack({ myPokemon, attack, setMessage }) {
     </button>
   ));
 
-  return <div>{renderAtaques}</div>;
+  return <StyledButtons>{renderAtaques}</StyledButtons>;
 }

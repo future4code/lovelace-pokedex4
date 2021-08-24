@@ -12,6 +12,7 @@ export default function StatusCard({ pokemon, currentHp }) {
     if (percentage > 0.6) setColor("green");
     if (percentage <= 0.6 && percentage > 0.2) setColor("yellow");
     else if (percentage <= 0.2) setColor("red");
+    // eslint-disable-next-line
   }, [currentHp]);
 
   return (

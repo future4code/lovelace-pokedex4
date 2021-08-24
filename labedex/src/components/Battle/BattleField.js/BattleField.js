@@ -51,6 +51,7 @@ export default function BattleField({ myPokemon, hisPokemon }) {
         setMessageToHim(`${hisPokemon.name} ${name}! ${effect}`);
       }, 2000);
     }
+    // eslint-disable-next-line
   }, [turn]);
 
   useEffect(() => {
@@ -85,6 +86,7 @@ export default function BattleField({ myPokemon, hisPokemon }) {
         attack={myAttack}
         message={turn.message}
         setMessage={setMessageToMe}
+        myTurn={turn.myTurn}
       />
     </StyledBattleField>
   );

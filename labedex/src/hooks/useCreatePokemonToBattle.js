@@ -63,6 +63,7 @@ export function useCreatePokemon(id) {
     };
 
     getDatas();
+    // eslint-disable-next-line
   }, []);
 
   return { ...stat, ...pokemonImages, name, moves };
