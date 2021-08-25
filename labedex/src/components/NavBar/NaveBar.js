@@ -5,7 +5,7 @@ function NaveBar(props) {
     <ContainerGeral>
       <NavBar>
         <a href="#" class="link link--elara">
-          <h3> {props.button1}</h3>
+          <h3 onClick={props.onclick1}> {props.button1}</h3>
         </a>
 
         {props.showButton && <button>Adicionar na Pokedex</button>}
