@@ -6,7 +6,7 @@ export const ContainerMainPokedex = styled.div`
 
 export const ContainerCardBatalha = styled.div`
     width: 35%;
-    height: 650px;
+    height: 68vh;
     background-color: #222;
     margin: 35px;
     border-radius: 10px;
@@ -33,18 +33,14 @@ export const ContainerCardBatalha = styled.div`
     
 `
 
-export const ContainerMiniFotos = styled.div`
-    
-`
-
 export const DuasFotosEVersus = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 
     p {
-        font-size: 2.5em;
-        font-family: Montserrat;
+        font-size: 3.9em;
+        font-family: 'Permanent Marker', cursive;
     }
 
 `
