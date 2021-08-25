@@ -15,7 +15,13 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
-      <Screen cardPokemon={<CardPokemon />} />
+      <Screen
+        cardPokemon={
+          <CardPokemon
+            onclickDetails={() => goToDetailsPage(history, "grovyle")}
+          />
+        }
+      />
     </div>
   );
 }
