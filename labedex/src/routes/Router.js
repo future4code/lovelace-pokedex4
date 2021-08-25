@@ -14,7 +14,7 @@ const Router = () => {
         <Route exact path="/details/:name" component={Details} />
         <Route
           exact
-          path="/battle/:namePokemon1/:namePokemon2"
+          path="/battle/:idPokemon1/:idPokemon2"
           component={Battle}
         />
         <Route>

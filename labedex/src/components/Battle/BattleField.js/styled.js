@@ -5,8 +5,9 @@ export const StyledBattleField = styled.div`
     margin-top: 5vh;
     background: #EDEDED;
     padding: 10px;
-    min-width: 320px;
+    min-width: 350px;
     width: 50vw;
+    max-width: 400px;
     
     display: flex;
     flex-direction: column;

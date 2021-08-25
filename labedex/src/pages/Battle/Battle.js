@@ -7,10 +7,11 @@ import Header from "../../components/Header/Header";
 import { ContainerBattle } from "./styled";
 
 import { goBack } from "../../routes/Coordinator.js";
+import NaveBar from "../../components/NavBar/NaveBar";
 
 function Battle() {
   const { idPokemon1, idPokemon2 } = useParams();
-
+  const history = useHistory();
   const myPokemon = useCreatePokemon(idPokemon1);
   const hisPokemon = useCreatePokemon(idPokemon2);
 
@@ -23,7 +24,8 @@ function Battle() {
 
   return (
     <ContainerBattle>
-      <Header />
+      <Header title="PokeBattle" />
+      <NaveBar button1="Voltar" onclick1={() => goBack(history)} />
       <BattleField myPokemon={myPokemon} hisPokemon={hisPokemon} />
     </ContainerBattle>
   );
