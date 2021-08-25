@@ -4,8 +4,15 @@ import NaveBar from "../../components/NavBar/NaveBar.js";
 import Screen from "../../components/Screen/ScreenHome.js";
 import { goToPokedexPage, goToDetailsPage } from "../../routes/Coordinator";
 import { useHistory } from "react-router-dom";
+import axios from "axios"
+import { GET_FIST_20_POKEMONS } from "../../constants/urls"
+import useRequestData from "../../hooks/useRequestData"
 
 function Home() {
+  const [data] = useRequestData({}, GET_FIST_20_POKEMONS);
+  console.log(data)
+  
+
   const history = useHistory();
 
   return (
@@ -16,11 +23,7 @@ function Home() {
         onclick1={() => goToPokedexPage(history)}
       />
       <Screen
-        cardPokemon={
-          <CardPokemon
-            onclickDetails={() => goToDetailsPage(history, "grovyle")}
-          />
-        }
+        cardPokemon={data.results}
       />
     </div>
   );

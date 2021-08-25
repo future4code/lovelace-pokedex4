@@ -9,28 +9,18 @@ const ContainerMain = styled.div`
 `;
 
 function Screen(props) {
+  console.log(props.cardPokemon)
+  const pokelist = props.cardPokemon.map((pokemon) => {
+    return(
+      <p>{pokemon.name}</p>
+    )
+  } )
+ 
   return (
     <ContainerMain>
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
-      {props.cardPokemon}
+     
+      {pokelist}
+    
     </ContainerMain>
   );
 }
