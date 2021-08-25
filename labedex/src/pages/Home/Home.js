@@ -1,6 +1,6 @@
 import CardPokemon from "../../components/CardPokemon/CardPokemon.js";
 import Header from "../../components/Header/Header.js";
-import NaveBar from "../../components/Header/NaveBar.js";
+import NaveBar from "../../components/NavBar/NaveBar.js";
 import Screen from "../../components/Screen/ScreenHome.js";
 
 function Home() {
