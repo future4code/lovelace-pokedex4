@@ -15,9 +15,22 @@ import {
   goToBattle,
 } from "../../routes/Coordinator";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import GlobalContext from "../../global/GlobalContext.js";
+
 
 function Pokedex() {
+  const { states } = useContext(GlobalContext)
+  console.log(states.pokemons)
   const history = useHistory();
+
+  const pokedexCards = states.pokemons.map((pokemon) => {
+    return <CardPokemon
+    pokename={pokemon}
+    onclickDetails={() => goToDetailsPage(history, pokemon)}
+  />
+  } )
+
 
   return (
     <div>
@@ -41,32 +54,9 @@ function Pokedex() {
         </ContainerCardBatalha>
 
         <ContainerCardPokedex>
-          <CardPokemon
-            onclickDetails={() => goToDetailsPage(history, "grovyle")}
-          />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
-          <CardPokemon />
+          {pokedexCards}
+         
+        
         </ContainerCardPokedex>
       </ContainerMainPokedex>
     </div>

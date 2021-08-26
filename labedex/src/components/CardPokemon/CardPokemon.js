@@ -1,16 +1,18 @@
 import { CardsPokemon } from "./styled";
-import React from "react";
-import axios from "axios";
-import { useState } from "react";
+import React, { useContext } from "react";
 import PokeImagem from "./PokeImagem";
+import GlobalContext from "../../global/GlobalContext.js";
+
 
 function CardPokemon(props) {
+  const { setters } = useContext(GlobalContext)
+  
   return (
     <CardsPokemon>
       <PokeImagem name={props.pokename} />
       <h2>{props.pokename}</h2>
       <div>
-        <button>Adicionar</button>
+        <button onClick={() => setters.addPokemonToPokedex(props.pokename)}>Adicionar</button>
         <button onClick={props.onclickDetails}>Detalhes</button>
       </div>
     </CardsPokemon>
