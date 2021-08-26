@@ -9,20 +9,7 @@ const ContainerMain = styled.div`
 `;
 
 function Screen(props) {
-  console.log(props.cardPokemon)
-  const pokelist = props.cardPokemon.map((pokemon) => {
-    return(
-      <p>{pokemon.name}</p>
-    )
-  } )
- 
-  return (
-    <ContainerMain>
-     
-      {pokelist}
-    
-    </ContainerMain>
-  );
+  return <ContainerMain>{props.listaPokemon}</ContainerMain>;
 }
 
 export default Screen;

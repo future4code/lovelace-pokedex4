@@ -1,11 +1,14 @@
 import { CardsPokemon } from "./styled";
 import React from "react";
+import axios from "axios";
+import { useState } from "react";
+import PokeImagem from "./PokeImagem";
 
 function CardPokemon(props) {
   return (
     <CardsPokemon>
-      <img src="https://picsum.photos/250/200" />
-      <h2>Pokename</h2>
+      <PokeImagem name={props.pokename} />
+      <h2>{props.pokename}</h2>
       <div>
         <button>Adicionar</button>
         <button onClick={props.onclickDetails}>Detalhes</button>
