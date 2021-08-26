@@ -20,20 +20,23 @@ export const NavBar = styled.nav `
 
   }
   h3::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 5px;
-  background: white;
-  transition: width .3s;
+    content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  transform: scaleX(0);
+  background-color: white;
+  transition: transform 0.3s;
 }
 
 h3:hover::after {
-  width: 100%;
+  transform: scaleX(1);
   //transition: width .3s;
 }
 
-  
 
 button {
     position: relative;

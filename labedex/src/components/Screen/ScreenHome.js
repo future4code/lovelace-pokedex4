@@ -10,6 +10,7 @@ const ContainerMain = styled.div`
 
 function Screen(props) {
   return <ContainerMain>{props.listaPokemon}</ContainerMain>;
+
 }
 
 export default Screen;

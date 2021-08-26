@@ -4,6 +4,9 @@ import NaveBar from "../../components/NavBar/NaveBar.js";
 import Screen from "../../components/Screen/ScreenHome.js";
 import { goToPokedexPage, goToDetailsPage } from "../../routes/Coordinator";
 import { useHistory } from "react-router-dom";
+import GlobalContext from "../../global/GlobalContext.js";
+
+
 import axios from "axios";
 import { GET_FIST_20_POKEMONS } from "../../constants/urls";
 import useRequestData from "../../hooks/useRequestData";
@@ -11,7 +14,7 @@ import { useEffect } from "react";
 
 function Home() {
   const [data] = useRequestData({}, GET_FIST_20_POKEMONS);
-  console.log(data);
+  const { setters } = useContext(GlobalContext)
 
   const history = useHistory();
 
