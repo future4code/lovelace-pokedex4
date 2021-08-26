@@ -7,9 +7,11 @@ import { useHistory } from "react-router-dom";
 import axios from "axios"
 import { GET_FIST_20_POKEMONS } from "../../constants/urls"
 import useRequestData from "../../hooks/useRequestData"
+import GlobalContext from "../../global/GlobalContext.js";
 
 function Home() {
   const [data] = useRequestData({}, GET_FIST_20_POKEMONS);
+  const { setters } = useContext(GlobalContext)
   console.log(data)
   
 
