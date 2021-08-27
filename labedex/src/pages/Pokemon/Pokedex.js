@@ -67,7 +67,7 @@ function Pokedex() {
             }
             <p>VS</p>
             {selectedPokemon2==='' ?
-              <FundoMiniEsquerda />:
+              <FundoMiniDireita />:
               <PokeImagem name={selectedPokemon2} />
             }
           </DuasFotosEVersus>

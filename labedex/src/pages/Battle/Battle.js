@@ -25,7 +25,7 @@ function Battle() {
   return (
     <ContainerBattle>
       <Header title="PokeBattle" />
-      <NaveBar button1="Voltar" onclick1={() => goBack(history)} />
+      <NaveBar button1="Voltar" onclick1={() => history.push('/pokedex')} />
       <BattleField myPokemon={myPokemon} hisPokemon={hisPokemon} />
     </ContainerBattle>
   );
