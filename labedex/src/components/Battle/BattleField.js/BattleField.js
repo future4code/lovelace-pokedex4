@@ -3,7 +3,6 @@ import { damage } from "../../../tools/battle/damage";
 import StatusCard from "../StatusCard/StatusCard";
 import ControllsContainer from "../ControllsContainer/ControllsContainer";
 import PokemonImage from "../PokemonImage/PokemonImage";
-import CongratulationsImage from '../../../assets/img/congratulations.gif'
 
 import { StyledBattleField, StyledImage, StyledImageCongratulations } from './styled'
 
@@ -68,11 +67,6 @@ export default function BattleField({ myPokemon, hisPokemon }) {
     return (
       <StyledImageCongratulations>
         <p>Vitória do {winner}</p>
-        {
-          winner===myPokemon.name?
-          <p>Você perdeu</p>:
-          <img src={CongratulationsImage} alt='congratulations' />
-        }
       </StyledImageCongratulations>
     )
   }

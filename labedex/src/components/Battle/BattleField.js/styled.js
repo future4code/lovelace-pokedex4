@@ -41,7 +41,7 @@ export const StyledImageCongratulations = styled.div`
 
     p {
         color: white;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 700;
     }
 `
