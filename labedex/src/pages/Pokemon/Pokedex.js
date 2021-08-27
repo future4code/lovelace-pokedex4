@@ -26,7 +26,6 @@ import Button from '@material-ui/core/Button';
 function Pokedex() {
   const { states } = useContext(GlobalContext);
   const [cursorOnSlot1, setCursorOnSlot1] = useState(true);
-
   const [selectedPokemon1, setSelectedPokemon1] = useState("");
   const [selectedPokemon2, setSelectedPokemon2] = useState("");
 
@@ -63,19 +62,24 @@ function Pokedex() {
     );
   });
 
-  /*   const pokePikachu = () => {
-    if (!pokedexCards) {
-      <ContainerNoPokemon>
-        <h1> Adicione mais Pokemons em sua Pokedex </h1>
-        <img
-          class="emojidex-emoji"
-          src="https://cdn.emojidex.com/emoji/seal/pikachu.png"
-          emoji-code="pikachu"
-          alt="pikachu"
-        />
-      </ContainerNoPokemon>;
+  const renderPokemons = () => {
+    if (!states) return <Loading />
+    else if (!states.pokemons.length) {
+      return (
+        <ContainerNoPokemon>
+          <h1> Adicione mais Pokemons em sua Pokedex </h1>
+          <img
+            className="emojidex-emoji"
+            src={'https://cdn.emojidex.com/emoji/seal/pikachu.png'}
+            emoji-code="pikachu"
+            alt="pikachu"
+          />
+        </ContainerNoPokemon>
+      );
     }
-  }; */
+    else return pokedexCards
+  }
+
 
   return (
     <div>
@@ -108,13 +112,14 @@ function Pokedex() {
               )}
             </div>
           </DuasFotosEVersus>
-          <Button onClick={() => history.push(goToBattle(history, selectedPokemon1, selectedPokemon2))}>
+          <Button 
+          disabled={selectedPokemon1==='' || selectedPokemon2===''}
+          onClick={() => history.push(goToBattle(history, selectedPokemon1, selectedPokemon2))}>
             Iniciar a Batalha!
           </Button>
         </ContainerCardBatalha>
         <ContainerCardPokedex>
-          {/*           {pokePikachu} */}
-          {states ? pokedexCards : <Loading />}
+          {renderPokemons()}
         </ContainerCardPokedex>
       </ContainerMainPokedex>
     </div>

@@ -56,8 +56,8 @@ export default function BattleField({ myPokemon, hisPokemon }) {
   }, [turn]);
 
   useEffect(() => {
-    if (myCurrentHp === 0) SetWinner(myPokemon.name);
-    else if (hisCurrentHp === 0) SetWinner(hisPokemon.name);
+    if (myCurrentHp === 0) SetWinner(hisPokemon.name);
+    else if (hisCurrentHp === 0) SetWinner(myPokemon.name);
 
     // eslint-disable-next-line 
   }, [myCurrentHp, hisCurrentHp]);

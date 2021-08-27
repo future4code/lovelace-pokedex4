@@ -13,7 +13,7 @@ const ContainerGeral = styled.div`
 function Loading() {
   return (
     <ContainerGeral>
-      <img src={pikachu} />
+      <img src={pikachu} alt='loading'/>
       <h4>Carregando...</h4>
     </ContainerGeral>
   );
