@@ -25,3 +25,23 @@ export const StyledImage = styled.div`
     border-radius: 8px;
     width: 100%;
 `
+export const StyledImageCongratulations = styled.div`
+    background-image: url(${bgImage});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:  cover, cover;
+    padding: 20px 0 2px 0;
+    border-radius: 8px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        color: white;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+`

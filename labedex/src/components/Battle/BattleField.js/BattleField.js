@@ -3,11 +3,13 @@ import { damage } from "../../../tools/battle/damage";
 import StatusCard from "../StatusCard/StatusCard";
 import ControllsContainer from "../ControllsContainer/ControllsContainer";
 import PokemonImage from "../PokemonImage/PokemonImage";
+import CongratulationsImage from '../../../assets/img/congratulations.gif'
 
-import { StyledBattleField, StyledImage } from './styled'
+import { StyledBattleField, StyledImage, StyledImageCongratulations } from './styled'
 
 export default function BattleField({ myPokemon, hisPokemon }) {
 
+  const [winner, SetWinner] = useState('')
   const [myCurrentHp, setMyCurrentHp] = useState();
   const [hisCurrentHp, setHisCurrentHp] = useState();
   const [turn, setTurn] = useState({
@@ -55,9 +57,26 @@ export default function BattleField({ myPokemon, hisPokemon }) {
   }, [turn]);
 
   useEffect(() => {
-    if (myCurrentHp === 0) alert("Você perdeu");
-    else if (hisCurrentHp === 0) alert("Você venceu");
+    if (myCurrentHp === 0) SetWinner(myPokemon.name);
+    else if (hisCurrentHp === 0) SetWinner(hisPokemon.name);
+
+    // eslint-disable-next-line 
   }, [myCurrentHp, hisCurrentHp]);
+
+
+  if(winner){
+    return (
+      <StyledImageCongratulations>
+        <p>Vitória do {winner}</p>
+        {
+          winner===myPokemon.name?
+          <p>Você perdeu</p>:
+          <img src={CongratulationsImage} alt='congratulations' />
+        }
+      </StyledImageCongratulations>
+    )
+  }
+
 
   return (
     <StyledBattleField>
