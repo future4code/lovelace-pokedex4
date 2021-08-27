@@ -2,6 +2,7 @@ import { CardsPokemon } from "./styled";
 import React, { useContext } from "react";
 import PokeImagem from "./PokeImagem";
 import GlobalContext from "../../global/GlobalContext.js";
+import Button from '@material-ui/core/Button';
 
 import { startWithUpperCase } from "../../tools/languages/startWithUpperCase";
 
@@ -21,8 +22,8 @@ function CardPokemon(props) {
       <PokeImagem name={props.pokename} />
       <h2>{startWithUpperCase(props.pokename)}</h2>
       <div>
-        <button onClick={handleButton}>{props.buttonAction}</button>
-        <button onClick={props.onclickDetails}>Detalhes</button>
+        <Button variant="contained" color="primary" onClick={handleButton}>{props.buttonAction}</Button>
+        <Button variant="contained" color="primary" onClick={props.onclickDetails}>Detalhes</Button>
       </div>
     </CardsPokemon>
   );
