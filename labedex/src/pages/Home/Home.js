@@ -11,29 +11,24 @@ import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 import axios from 'axios'
 import { ButtonStyle } from "./styled.js";
-import { ButtonStyle1} from "./styled.js";
+import { ButtonStyle1 } from "./styled.js";
 import Loading from "../../components/Loading.js";
 
 
 function Home() {
-  const [data, setData] = useRequestData({}, GET_FIST_20_POKEMONS);
+  const [data] = useRequestData({}, GET_FIST_20_POKEMONS);
   const { states } = useContext(GlobalContext);
   const history = useHistory();
-
   const [pokemons20, setPokemons20] = useState()
   const [nextLink, setNextLink] = useState('')
   const [backLink, setBackLink] = useState("")
 
-
-  useEffect(() => { 
-    console.log("nextLink",nextLink)
-    console.log("backLink",backLink)   
+  useEffect(() => {
     setPokemons20(data.results)
     setBackLink(data.previous)
-    setNextLink(data.next)  
+    setNextLink(data.next)
+    // eslint-disable-next-line
   }, [data])
-
-
 
   const pokelist =
     pokemons20 &&
@@ -52,34 +47,26 @@ function Home() {
 
   const handleButtonNext = () => {
     axios.get(nextLink)
-    .then(res => {
-      console.log(res)
-      setPokemons20(res.data.results)
-      if(res.data.next)
-      setNextLink(res.data.next)
-      if(res.data.previous)
-      setBackLink(res.data.previous)
-    })
+      .then(res => {
+        console.log(res)
+        setPokemons20(res.data.results)
+        if (res.data.next)
+          setNextLink(res.data.next)
+        if (res.data.previous)
+          setBackLink(res.data.previous)
+      })
   }
 
   const handleButtonBack = () => {
     axios.get(backLink)
-    .then(res => {      
-      setPokemons20(res.data.results)
-      if(res.data.previous)
-      setBackLink(res.data.previous)
-      if(res.data.next)
-      setNextLink(res.data.next)
-
-
-    })
+      .then(res => {
+        setPokemons20(res.data.results)
+        if (res.data.previous)
+          setBackLink(res.data.previous)
+        if (res.data.next)
+          setNextLink(res.data.next)
+      })
   }
-
-
-
-
-
-
 
   return (
     <div>
@@ -88,13 +75,10 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
-      
       <ButtonStyle1 onClick={handleButtonBack}>Voltar</ButtonStyle1>
-       <ButtonStyle onClick={handleButtonNext}>Próximos</ButtonStyle>
-       
-      <Screen listaPokemon={pokelist} />
+      <ButtonStyle onClick={handleButtonNext}>Próximos</ButtonStyle>
+      {pokemons20? <Screen listaPokemon={pokelist} />: <Loading />}
       <div>
-       
       </div>
     </div>
   );
