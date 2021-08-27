@@ -19,12 +19,15 @@ function Home() {
 
   const [pokemons20, setPokemons20] = useState()
   const [nextLink, setNextLink] = useState('')
+  const [backLink, setBackLink] = useState("")
 
 
-  useEffect(() => {
+  useEffect(() => { 
+    console.log("nextLink",nextLink)
+    console.log("backLink",backLink)   
     setPokemons20(data.results)
-    setNextLink(data.next)
-
+    setBackLink(data.previous)
+    setNextLink(data.next)  
   }, [data])
 
 
@@ -50,11 +53,27 @@ function Home() {
 
 
   const handleButtonNext = () => {
-    axios.get(nextLink).then(res => {
-
+    axios.get(nextLink)
+    .then(res => {
       console.log(res)
       setPokemons20(res.data.results)
+      if(res.data.next)
       setNextLink(res.data.next)
+      if(res.data.previous)
+      setBackLink(res.data.previous)
+    })
+  }
+
+  const handleButtonBack = () => {
+    axios.get(backLink)
+    .then(res => {      
+      setPokemons20(res.data.results)
+      if(res.data.previous)
+      setBackLink(res.data.previous)
+      if(res.data.next)
+      setNextLink(res.data.next)
+
+
     })
   }
 
@@ -71,10 +90,11 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
+       <button onClick={handleButtonBack}>Voltar</button>
+        <button onClick={handleButtonNext}>Próximo</button>
       <Screen listaPokemon={pokelist} />
       <div>
-        <button>Voltar</button>
-        <button onClick={handleButtonNext}>Próximo</button>
+       
       </div>
     </div>
   );
