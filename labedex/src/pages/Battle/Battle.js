@@ -6,8 +6,8 @@ import { defineLevel } from "../../tools/battle/defineLevel";
 import Header from "../../components/Header/Header";
 import { ContainerBattle } from "./styled";
 
-import { goBack } from "../../routes/Coordinator.js";
 import NaveBar from "../../components/NavBar/NaveBar";
+import { goToPokedexPage } from "../../routes/Coordinator";
 
 function Battle() {
   const { idPokemon1, idPokemon2 } = useParams();
@@ -25,7 +25,7 @@ function Battle() {
   return (
     <ContainerBattle>
       <Header title="PokeBattle" />
-      <NaveBar button1="Voltar" onclick1={() => history.push('/pokedex')} />
+      <NaveBar button1="Voltar" onclick1={() => goToPokedexPage(history)} />
       <BattleField myPokemon={myPokemon} hisPokemon={hisPokemon} />
     </ContainerBattle>
   );
