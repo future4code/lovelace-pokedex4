@@ -9,7 +9,6 @@ const PokeImagem = (props) => {
             .get(`https://pokeapi.co/api/v2/pokemon/${props.name}`)
             .then((resp) => {
                 setPokeImg(resp.data.sprites.front_default);
-                console.log(pokeImg);
             })
             .catch((error) => {
                 console.log(error.response);
@@ -18,10 +17,10 @@ const PokeImagem = (props) => {
 
     useEffect(() => {
         pegaPoke();
+        // eslint-disable-next-line
     }, []);
 
-    return <img src = { pokeImg }
-    />;
+    return <img src = { pokeImg } alt={'imagem pokemon'}/>;
 };
 
 export default PokeImagem;

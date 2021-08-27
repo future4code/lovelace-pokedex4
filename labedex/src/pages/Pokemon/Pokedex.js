@@ -15,22 +15,38 @@ import {
   goToBattle,
 } from "../../routes/Coordinator";
 import { useHistory } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 
 
 function Pokedex() {
   const { states } = useContext(GlobalContext)
-  console.log(states.pokemons)
+  const [selectedPokemons, setSelectedPokemons] = useState([])
+  
   const history = useHistory();
+
+  const pushThisPokemon = pokemonName => {
+    if(selectedPokemons.length>=2) return
+    setSelectedPokemons([...selectedPokemons, pokemonName])
+  }
+
+  useEffect(() => {
+    // Esse useEffect é para testar
+    if(selectedPokemons.length<2) return
+
+    history.push(goToBattle(history, selectedPokemons[0], selectedPokemons[1]))
+    // eslint-disable-next-line
+  }, [selectedPokemons])
+
 
   const pokedexCards = states.pokemons.map((pokemon) => {
     return <CardPokemon
-    pokename={pokemon}
-    onclickDetails={() => goToDetailsPage(history, pokemon)}
-  />
+      key={pokemon}
+      pokename={pokemon}
+      onclickDetails={() => goToDetailsPage(history, pokemon)}
+      pushThisPokemon={() => pushThisPokemon(pokemon)}
+      />
   } )
-
 
   return (
     <div>
@@ -40,7 +56,6 @@ function Pokedex() {
         <ContainerCardBatalha>
           <h2>Batalhar</h2>
           <p>Selecione dois pokemons da lista clicando na imagem</p>
-
           <DuasFotosEVersus>
             <FundoMiniEsquerda />
 
@@ -52,11 +67,8 @@ function Pokedex() {
             Iniciar a Batalha!
           </button>
         </ContainerCardBatalha>
-
         <ContainerCardPokedex>
           {pokedexCards}
-         
-        
         </ContainerCardPokedex>
       </ContainerMainPokedex>
     </div>

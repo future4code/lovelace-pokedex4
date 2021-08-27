@@ -8,7 +8,7 @@ function CardPokemon(props) {
   const { setters } = useContext(GlobalContext)
   
   return (
-    <CardsPokemon>
+    <CardsPokemon onClick={props.pushThisPokemon}>
       <PokeImagem name={props.pokename} />
       <h2>{props.pokename}</h2>
       <div>
