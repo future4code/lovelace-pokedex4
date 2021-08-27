@@ -4,11 +4,16 @@ import GlobalContext from "./GlobalContext"
 
 const GlobalState = (props) => {
     const [pokemons, setPokemons] = useState([])
-    
+
     const addPokemonToPokedex = (name) => {
-       const newPokemons = [...pokemons, name]
-       setPokemons(newPokemons)
-       
+        if (pokemons.includes(name)) return
+        const newPokemons = [...pokemons, name]
+        setPokemons(newPokemons)
+    }
+
+    const removePokemonFromPokedex = (name) => {
+        const filtredArray = pokemons.filter(pokemon => name!==pokemon)
+        setPokemons(filtredArray)
     }
 
     // const addPokemons = () => {
@@ -20,7 +25,7 @@ const GlobalState = (props) => {
     // }
 
     const states = { pokemons }
-    const setters = { setPokemons, addPokemonToPokedex }
+    const setters = { setPokemons, addPokemonToPokedex, removePokemonFromPokedex }
     // const requests = { getPokemons, getPokeDetails }
 
     return (

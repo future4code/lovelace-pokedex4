@@ -78,8 +78,8 @@ function ScreenDetails() {
       </div>
       <ContainerDetails>
         <ContainerImg>
-          <img src="https://picsum.photos/200/300" />
-          <img src="https://picsum.photos/200/300" />
+          <img src="https://picsum.photos/200/300" alt={'imagem aleatório'}/>
+          <img src="https://picsum.photos/200/300" alt={'imagem aleatório'}/>
         </ContainerImg>
         <ContainerStats>
           <h3>Status</h3>

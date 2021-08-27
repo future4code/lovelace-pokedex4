@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { GET_POKEMON_BY_NAME } from "../../constants/urls";
+
 
 const PokeImagem = (props) => {
     const [pokeImg, setPokeImg] = useState([]);
 
     const pegaPoke = () => {
         axios
-            .get(`https://pokeapi.co/api/v2/pokemon/${props.name}`)
+            .get(GET_POKEMON_BY_NAME(props.name))
             .then((resp) => {
                 setPokeImg(resp.data.sprites.front_default);
-                console.log(pokeImg);
             })
             .catch((error) => {
                 console.log(error.response);
@@ -18,10 +19,11 @@ const PokeImagem = (props) => {
 
     useEffect(() => {
         pegaPoke();
-    }, []);
+        // eslint-disable-next-line
+    }, [props.name]);
 
-    return <img src = { pokeImg }
-    />;
+
+    return <img src={pokeImg} alt={'imagem pokemon'}/>;
 };
 
 export default PokeImagem;

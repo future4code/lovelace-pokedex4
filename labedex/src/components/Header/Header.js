@@ -1,5 +1,5 @@
 import { ContainerTitulo } from "./styled";
-import pokeball from "../../img/pokeball.png";
+import pokeball from "../../assets/img/pokeball.png";
 
 function Header(props) {
   return (

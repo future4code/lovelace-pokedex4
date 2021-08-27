@@ -2,11 +2,12 @@ import Header from "../../components/Header/Header.js";
 import NaveBar from "../../components/NavBar/NaveBar.js";
 import ScreenDetails from "../../components/Screen/ScreenDetails.js";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { goBack } from "../../routes/Coordinator.js";
 
 function Details() {
   const history = useHistory();
+  const { name } = useParams()
 
   return (
     <div>
@@ -15,6 +16,7 @@ function Details() {
         button1="Voltar"
         onclick1={() => goBack(history)}
         showButton={true}
+        namePokemon={name}
       />
       <ScreenDetails />
     </div>
