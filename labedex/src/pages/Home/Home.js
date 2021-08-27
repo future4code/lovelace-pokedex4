@@ -10,8 +10,7 @@ import useRequestData from "../../hooks/useRequestData";
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 import axios from 'axios'
-import { ButtonStyle } from "./styled.js";
-import { ButtonStyle1 } from "./styled.js";
+import { ButtonStyle, ButtonStyle1, ContainerButton } from "./styled.js";
 import Loading from "../../components/Loading.js";
 
 
@@ -74,11 +73,15 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
-      <ButtonStyle1 onClick={handleButtonBack}>Voltar</ButtonStyle1>
-      <ButtonStyle onClick={handleButtonNext}>Próximos</ButtonStyle>
-      {pokemons20? <Screen listaPokemon={pokelist} />: <Loading />}
-      <div>
-      </div>
+      <ContainerButton>
+        <ButtonStyle1 onClick={handleButtonBack}>Voltar</ButtonStyle1>
+        <ButtonStyle onClick={handleButtonNext}>Próximos</ButtonStyle>
+      </ContainerButton>
+      {pokemons20 ? <Screen listaPokemon={pokelist} /> : <Loading />}
+      <ContainerButton>
+        <ButtonStyle1 onClick={handleButtonBack}>Voltar</ButtonStyle1>
+        <ButtonStyle onClick={handleButtonNext}>Próximos</ButtonStyle>
+      </ContainerButton>
     </div>
   );
 }

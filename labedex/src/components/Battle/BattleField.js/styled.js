@@ -33,6 +33,7 @@ export const StyledImageCongratulations = styled.div`
     padding: 20px 0 2px 0;
     border-radius: 8px;
     width: 100%;
+    height: 50vh;
 
     display: flex;
     flex-direction: column;
@@ -41,7 +42,7 @@ export const StyledImageCongratulations = styled.div`
 
     p {
         color: white;
-        font-size: 2rem;
+        font-size: 3rem;
         font-weight: 700;
     }
 `
