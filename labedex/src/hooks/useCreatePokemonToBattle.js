@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { GET_POKEMON_BY_NAME } from "../constants/urls";
 
 export function useCreatePokemon(namePokemon) {
   const [stat, setStat] = useState({});
@@ -10,9 +11,7 @@ export function useCreatePokemon(namePokemon) {
   useEffect(() => {
     const getDatas = async () => {
       try {
-        const resPokemon = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${namePokemon}/`
-        );
+        const resPokemon = await axios.get( GET_POKEMON_BY_NAME(namePokemon) );
         const allStatus = resPokemon.data.stats;
         const novoStatus = {};
 
@@ -57,8 +56,7 @@ export function useCreatePokemon(namePokemon) {
 
         setMoves(newMoves);
       } catch (err) {
-        console.log(err.response);
-        alert('Erro when search pokemon.')
+        alert('Erro ao procurar pokemon.')
       }
     };
 

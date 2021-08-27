@@ -11,7 +11,7 @@ function CardPokemon(props) {
     if(props.buttonAction === 'Adicionar')
       setters.addPokemonToPokedex(props.pokename)
     else
-      setters.removePokemonFromPokemon(props.pokename)
+      setters.removePokemonFromPokedex(props.pokename)
   }
   
   return (

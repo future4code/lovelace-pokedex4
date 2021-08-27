@@ -6,3 +6,4 @@ export const GET_POKEMON_BY_ID = id => `https://pokeapi.co/api/v2/pokemon/${id}`
 export const GET_FLAVOR_BY_ID = id => `https://pokeapi.co/api/v2/pokemon-species/${id}`
 export const GET_MOVE_BY_MOVEID = id => `https://pokeapi.co/api/v2/move/${id}`
 export const GET_MOVES_BY_DAMAGETYPE = type => ` https://pokeapi.co/api/v2/move-damage-class/${type}`
+export const GET_POKEMON_BY_NAME = name => `https://pokeapi.co/api/v2/pokemon/${name}`

@@ -11,7 +11,7 @@ const GlobalState = (props) => {
         setPokemons(newPokemons)
     }
 
-    const removePokemonFromPokemon = (name) => {
+    const removePokemonFromPokedex = (name) => {
         const filtredArray = pokemons.filter(pokemon => name!==pokemon)
         setPokemons(filtredArray)
     }
@@ -25,7 +25,7 @@ const GlobalState = (props) => {
     // }
 
     const states = { pokemons }
-    const setters = { setPokemons, addPokemonToPokedex, removePokemonFromPokemon }
+    const setters = { setPokemons, addPokemonToPokedex, removePokemonFromPokedex }
     // const requests = { getPokemons, getPokeDetails }
 
     return (

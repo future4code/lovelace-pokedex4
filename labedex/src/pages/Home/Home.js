@@ -18,17 +18,17 @@ function Home() {
   const pokelist =
     data.results &&
     data.results
-    .filter(pokemon => !states.pokemons.includes(pokemon.name))
-    .map((pokemon) => {
-      return (
-        <CardPokemon
-          key={pokemon.name}
-          onclickDetails={() => goToDetailsPage(history, pokemon.name)}
-          pokename={pokemon.name}
-          buttonAction={'Adicionar'}
-        />
-      );
-    });
+      .filter(pokemon => !states.pokemons.includes(pokemon.name))
+      .map((pokemon) => {
+        return (
+          <CardPokemon
+            key={pokemon.name}
+            onclickDetails={() => goToDetailsPage(history, pokemon.name)}
+            pokename={pokemon.name}
+            buttonAction={'Adicionar'}
+          />
+        );
+      });
 
   return (
     <div>
