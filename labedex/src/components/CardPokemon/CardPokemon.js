@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import PokeImagem from "./PokeImagem";
 import GlobalContext from "../../global/GlobalContext.js";
 
+import { startWithUpperCase } from "../../tools/languages/startWithUpperCase";
+
 
 function CardPokemon(props) {
   const { setters } = useContext(GlobalContext)
@@ -17,7 +19,7 @@ function CardPokemon(props) {
   return (
     <CardsPokemon>
       <PokeImagem name={props.pokename} />
-      <h2>{props.pokename}</h2>
+      <h2>{startWithUpperCase(props.pokename)}</h2>
       <div>
         <button onClick={handleButton}>{props.buttonAction}</button>
         <button onClick={props.onclickDetails}>Detalhes</button>
