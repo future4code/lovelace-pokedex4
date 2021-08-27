@@ -10,59 +10,44 @@ import useRequestData from "../../hooks/useRequestData";
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 
-import axios from 'axios'
+import axios from "axios";
+import Loading from "../../components/Loading.js";
 
 function Home() {
   const [data, setData] = useRequestData({}, GET_FIST_20_POKEMONS);
-  const { states } = useContext(GlobalContext)
+  const { states } = useContext(GlobalContext);
   const history = useHistory();
 
-  const [pokemons20, setPokemons20] = useState()
-  const [nextLink, setNextLink] = useState('')
-
+  const [pokemons20, setPokemons20] = useState();
+  const [nextLink, setNextLink] = useState("");
 
   useEffect(() => {
-    setPokemons20(data.results)
-    setNextLink(data.next)
-
-  }, [data])
-
-
+    setPokemons20(data.results);
+    setNextLink(data.next);
+  }, [data]);
 
   const pokelist =
     pokemons20 &&
     pokemons20
-      .filter(pokemon => !states.pokemons.includes(pokemon.name))
+      .filter((pokemon) => !states.pokemons.includes(pokemon.name))
       .map((pokemon) => {
         return (
           <CardPokemon
             key={pokemon.name}
             onclickDetails={() => goToDetailsPage(history, pokemon.name)}
             pokename={pokemon.name}
-            buttonAction={'Adicionar'}
+            buttonAction={"Adicionar"}
           />
         );
       });
 
-
-
-
-
-
   const handleButtonNext = () => {
-    axios.get(nextLink).then(res => {
-
-      console.log(res)
-      setPokemons20(res.data.results)
-      setNextLink(res.data.next)
-    })
-  }
-
-
-
-
-
-
+    axios.get(nextLink).then((res) => {
+      console.log(res);
+      setPokemons20(res.data.results);
+      setNextLink(res.data.next);
+    });
+  };
 
   return (
     <div>
@@ -71,7 +56,7 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
-      <Screen listaPokemon={pokelist} />
+      {data ? <Screen listaPokemon={pokelist} /> : <Loading />}
       <div>
         <button>Voltar</button>
         <button onClick={handleButtonNext}>Próximo</button>
