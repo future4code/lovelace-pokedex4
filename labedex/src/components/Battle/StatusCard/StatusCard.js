@@ -21,29 +21,31 @@ export default function StatusCard({ pokemon, currentHp }) {
         margin: "15px 10px",
         padding: "0 10px",
         borderRadius: "5px",
-        background: "#FEE6A3"
+        background: "#FEE6A3",
       }}
     >
       <p>
-        {pokemon.name} Lv: {pokemon.level}
+        <strong>{pokemon.name}</strong> Lv: {pokemon.level}
       </p>
       <div
         style={{
-          height: "20px",
+          height: "10px",
           width: `${widthValue}px`,
-          background: "gray"
+          background: "gray",
+          borderRadius: "15px",
         }}
       >
         <p
           style={{
-            height: "20px",
+            height: "10px",
             width: `${widthValue * (currentHp / totalHp)}px`,
-            background: color
+            background: color,
+            borderRadius: "15px",
           }}
         ></p>
       </div>
       <p>
-        {currentHp}/{totalHp}
+        <small>{currentHp}/{totalHp}</small>
       </p>
     </div>
   );

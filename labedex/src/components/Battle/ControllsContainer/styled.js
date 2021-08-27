@@ -15,17 +15,22 @@ export const StyledControlls = styled.div`
 export const StyledControllsInten = styled.div`
     width: 95%;
     height: 95%;
+    min-height: 100px;
     border-radius: 10px;
     background: #f0f0f0;
 
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     
     div {
         border-radius: 10px;
     }
 
     p {
+        max-width: 300px;
         margin: 8px;
     }
 

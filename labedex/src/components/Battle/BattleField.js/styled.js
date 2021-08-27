@@ -5,9 +5,8 @@ export const StyledBattleField = styled.div`
     margin-top: 5vh;
     background: #EDEDED;
     padding: 10px;
-    min-width: 350px;
-    width: 50vw;
-    max-width: 400px;
+    width: 90vw;
+    max-width: 600px;
     
     display: flex;
     flex-direction: column;
@@ -25,4 +24,24 @@ export const StyledImage = styled.div`
     padding: 20px 0 2px 0;
     border-radius: 8px;
     width: 100%;
+`
+export const StyledImageCongratulations = styled.div`
+    background-image: url(${bgImage});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:  cover, cover;
+    padding: 20px 0 2px 0;
+    border-radius: 8px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+    }
 `
