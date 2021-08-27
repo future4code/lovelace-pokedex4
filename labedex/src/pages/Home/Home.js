@@ -9,9 +9,12 @@ import { GET_FIST_20_POKEMONS } from "../../constants/urls";
 import useRequestData from "../../hooks/useRequestData";
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
-
+import axios from 'axios'
+import { ButtonStyle } from "./styled.js";
+import { ButtonStyle1} from "./styled.js";
 import axios from "axios";
 import Loading from "../../components/Loading.js";
+
 
 function Home() {
   const [data, setData] = useRequestData({}, GET_FIST_20_POKEMONS);
@@ -86,8 +89,10 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
-       <button onClick={handleButtonBack}>Voltar</button>
-        <button onClick={handleButtonNext}>Próximo</button>
+      
+      <ButtonStyle1 onClick={handleButtonBack}>Voltar</ButtonStyle1>
+       <ButtonStyle onClick={handleButtonNext}>Próximos</ButtonStyle>
+       
       <Screen listaPokemon={pokelist} />
       <div>
        
