@@ -1,7 +1,7 @@
 import Header from "../../components/Header/Header.js";
 import NaveBar from "../../components/NavBar/NaveBar.js";
 import ScreenDetails from "../../components/Screen/ScreenDetails.js";
-
+import Loading from "../../components/Loading.js";
 import { useHistory, useParams } from "react-router-dom";
 import { goBack } from "../../routes/Coordinator.js";
 
@@ -18,7 +18,7 @@ function Details() {
         showButton={true}
         namePokemon={name}
       />
-      <ScreenDetails />
+      {name ? <ScreenDetails /> : <Loading />}
     </div>
   );
 }

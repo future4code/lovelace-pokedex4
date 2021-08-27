@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-export const ContainerMainPokedex = styled.div`
+export const ContainerMainPokedex = styled.div `
     display: flex;
 `
 
-export const ContainerCardBatalha = styled.div`
+export const ContainerCardBatalha = styled.div `
     width: 35%;
     height: 68vh;
     background-color: #222;
@@ -29,11 +29,16 @@ export const ContainerCardBatalha = styled.div`
         font-size: 1.2em;
         font-family: Montserrat;
         cursor: pointer;
+        &:hover {
+            background-color: #F13C20;
+            color: white;
+        }
+        
     }
     
 `
 
-export const DuasFotosEVersus = styled.div`
+export const DuasFotosEVersus = styled.div `
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -44,7 +49,7 @@ export const DuasFotosEVersus = styled.div`
     }
 
 `
-export const FundoMiniEsquerda = styled.div`
+export const FundoMiniEsquerda = styled.div `
     background-color: #787878;
     border-radius: 5px;
     width: 100px;
@@ -52,7 +57,7 @@ export const FundoMiniEsquerda = styled.div`
     color: #787878;
     margin: 50px;
 `
-export const FundoMiniDireita = styled.div`
+export const FundoMiniDireita = styled.div `
     background-color: #787878;
     border-radius: 5px;
     width: 100px;
@@ -61,7 +66,7 @@ export const FundoMiniDireita = styled.div`
     margin: 50px;
 `
 
-export const ContainerCardPokedex = styled.div`
+export const ContainerCardPokedex = styled.div `
 padding-left: 40vw;
     flex: 1;
     display: grid;
@@ -71,4 +76,11 @@ padding-left: 40vw;
     justify-self: center;
     margin: 10px 15px;
     
+`
+
+export const ContainerNoPokemon = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `

@@ -8,6 +8,7 @@ import { ContainerBattle } from "./styled";
 
 import NaveBar from "../../components/NavBar/NaveBar";
 import { goToPokedexPage } from "../../routes/Coordinator";
+import Loading from "../../components/Loading";
 
 function Battle() {
   const { namePokemon1, namePokemon2 } = useParams();
@@ -26,7 +27,11 @@ function Battle() {
     <ContainerBattle>
       <Header title="PokeBattle" />
       <NaveBar button1="Voltar" onclick1={() => goToPokedexPage(history)} />
-      <BattleField myPokemon={myPokemon} hisPokemon={hisPokemon} />
+      {namePokemon1 ? (
+        <BattleField myPokemon={myPokemon} hisPokemon={hisPokemon} />
+      ) : (
+        <Loading />
+      )}
     </ContainerBattle>
   );
 }
