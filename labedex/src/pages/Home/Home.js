@@ -12,7 +12,6 @@ import GlobalContext from "../../global/GlobalContext.js";
 import axios from 'axios'
 import { ButtonStyle } from "./styled.js";
 import { ButtonStyle1} from "./styled.js";
-import axios from "axios";
 import Loading from "../../components/Loading.js";
 
 
