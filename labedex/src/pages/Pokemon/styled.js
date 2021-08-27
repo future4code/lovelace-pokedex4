@@ -29,6 +29,11 @@ export const ContainerCardBatalha = styled.div`
         font-size: 1.2em;
         font-family: Montserrat;
         cursor: pointer;
+        &:hover {
+            background-color: #F13C20;
+            color: white;
+        }
+        
     }
     
 `

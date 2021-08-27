@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 import { useContext, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 import PokeImagem from "../../components/CardPokemon/PokeImagem.js";
+import Button from '@material-ui/core/Button';
 
 
 function Pokedex() {
@@ -91,9 +92,9 @@ function Pokedex() {
             }
             </div>
           </DuasFotosEVersus>
-          <button onClick={() => history.push(goToBattle(history, selectedPokemon1, selectedPokemon2))}>
+          <Button onClick={() => history.push(goToBattle(history, selectedPokemon1, selectedPokemon2))}>
             Iniciar a Batalha!
-          </button>
+          </Button>
         </ContainerCardBatalha>
         <ContainerCardPokedex>
           {pokedexCards}
