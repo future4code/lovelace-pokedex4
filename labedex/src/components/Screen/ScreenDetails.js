@@ -9,7 +9,7 @@ import {
   ContainerMoves,
   ContainerSoloStat,
 } from "./StyledDetails";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { GET_POKEMON_BY_NAME } from "../../constants/urls";
 import { startWithUpperCase } from "../../tools/languages/startWithUpperCase";

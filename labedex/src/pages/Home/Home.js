@@ -48,7 +48,6 @@ function Home() {
   const handleButtonNext = () => {
     axios.get(nextLink)
       .then(res => {
-        console.log(res)
         setPokemons20(res.data.results)
         if (res.data.next)
           setNextLink(res.data.next)

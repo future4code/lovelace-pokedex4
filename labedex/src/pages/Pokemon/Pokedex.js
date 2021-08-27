@@ -69,7 +69,7 @@ function Pokedex() {
         <ContainerNoPokemon>
           <h1> Adicione mais Pokemons em sua Pokedex </h1>
           <img
-            class="emojidex-emoji"
+            className="emojidex-emoji"
             src={'https://cdn.emojidex.com/emoji/seal/pikachu.png'}
             emoji-code="pikachu"
             alt="pikachu"
