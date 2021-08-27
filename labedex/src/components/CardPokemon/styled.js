@@ -9,11 +9,6 @@ export const CardsPokemon = styled.div`
   align-items: center;
   margin: 5px;
 
-  &:hover{
-    border: 3px solid blue;
-  }
-
-
   button {
     margin: 0px 5px;
     background-color: #0075ff;

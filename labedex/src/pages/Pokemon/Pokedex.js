@@ -17,35 +17,39 @@ import {
 import { useHistory } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
+import PokeImagem from "../../components/CardPokemon/PokeImagem.js";
 
 
 function Pokedex() {
   const { states } = useContext(GlobalContext)
-  const [selectedPokemons, setSelectedPokemons] = useState([])
+  const [selectedPokemon1, setSelectedPokemon1] = useState("")
+  const [selectedPokemon2, setSelectedPokemon2] = useState("")
   
   const history = useHistory();
 
   const pushThisPokemon = pokemonName => {
-    if(selectedPokemons.length>=2) return
-    setSelectedPokemons([...selectedPokemons, pokemonName])
+    if(!selectedPokemon1) setSelectedPokemon1(pokemonName)
+    else if(!selectedPokemon2) setSelectedPokemon2(pokemonName)
   }
 
-  useEffect(() => {
-    // Esse useEffect é para testar
-    if(selectedPokemons.length<2) return
-
-    history.push(goToBattle(history, selectedPokemons[0], selectedPokemons[1]))
-    // eslint-disable-next-line
-  }, [selectedPokemons])
-
-
   const pokedexCards = states.pokemons.map((pokemon) => {
-    return <CardPokemon
-      key={pokemon}
-      pokename={pokemon}
-      onclickDetails={() => goToDetailsPage(history, pokemon)}
-      pushThisPokemon={() => pushThisPokemon(pokemon)}
-      />
+
+    let styleSelectedCard = {}
+
+    if(pokemon===selectedPokemon1 || pokemon===selectedPokemon1){
+      styleSelectedCard = { boxShadow: 'rgb(51, 51, 255) 0px 3px 8px'}
+    }
+
+    return <div
+      onClick={() => pushThisPokemon(pokemon)}
+      style={styleSelectedCard}
+    >
+      <CardPokemon
+        key={pokemon}
+        pokename={pokemon}
+        onclickDetails={() => goToDetailsPage(history, pokemon)}
+        />
+    </div> 
   } )
 
   return (
@@ -57,13 +61,17 @@ function Pokedex() {
           <h2>Batalhar</h2>
           <p>Selecione dois pokemons da lista clicando na imagem</p>
           <DuasFotosEVersus>
-            <FundoMiniEsquerda />
-
+            {selectedPokemon1==='' ?
+              <FundoMiniEsquerda />:
+              <PokeImagem name={selectedPokemon1} />
+            }
             <p>VS</p>
-
-            <FundoMiniDireita />
+            {selectedPokemon2==='' ?
+              <FundoMiniEsquerda />:
+              <PokeImagem name={selectedPokemon2} />
+            }
           </DuasFotosEVersus>
-          <button onClick={() => goToBattle(history, "name1", "name2")}>
+          <button onClick={() => history.push(goToBattle(history, selectedPokemon1, selectedPokemon2))}>
             Iniciar a Batalha!
           </button>
         </ContainerCardBatalha>

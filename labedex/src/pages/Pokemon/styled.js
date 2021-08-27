@@ -47,28 +47,28 @@ export const DuasFotosEVersus = styled.div`
 export const FundoMiniEsquerda = styled.div`
     background-color: #787878;
     border-radius: 5px;
-    width: 200px;
-    height: 250px;
+    width: 100px;
+    height: 150px;
     color: #787878;
     margin: 50px;
 `
 export const FundoMiniDireita = styled.div`
     background-color: #787878;
     border-radius: 5px;
-    width: 200px;
-    height: 250px;
+    width: 100px;
+    height: 150px;
     color: #787878;
     margin: 50px;
 `
 
 export const ContainerCardPokedex = styled.div`
+padding-left: 40vw;
     flex: 1;
-    overflow: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 15px;
+    justify-items: center;
     justify-self: center;
     margin: 10px 15px;
-    padding-left: 40vw;
     
 `
