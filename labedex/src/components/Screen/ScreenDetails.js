@@ -12,6 +12,7 @@ import {
 import { useHistory, useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
 import { GET_POKEMON_BY_NAME } from "../../constants/urls";
+import { startWithUpperCase } from "../../tools/languages/startWithUpperCase";
 
 function ScreenDetails(props) {
   const widthValue = 200;
@@ -21,17 +22,17 @@ function ScreenDetails(props) {
   return (
     <ContainerGeral>
       <div>
-        <h1>{name}</h1>
+        <h1>{startWithUpperCase(name)}</h1>
       </div>
       <ContainerDetails>
         <ContainerImg>
           <img
             src={data.sprites && data.sprites.back_default}
-            alt={"imagem aleatório"}
+            alt={"imagem bunda"}
           />
           <img
             src={data.sprites && data.sprites.front_default}
-            alt={"imagem aleatório"}
+            alt={"imagem frente"}
           />
         </ContainerImg>
         <ContainerStats>
@@ -66,7 +67,7 @@ function ScreenDetails(props) {
                 data.types.map((tipo) => {
                   return (
                     <strong key={tipo.type.name}>
-                      <span>{tipo.type.name} </span>
+                      <span>{startWithUpperCase(tipo.type.name)} </span>
                     </strong>
                   );
                 })}
@@ -80,7 +81,7 @@ function ScreenDetails(props) {
                   <div>
                     <strong>
                       {" "}
-                      <p>{ataque.move.name}</p>{" "}
+                      <p>{startWithUpperCase(ataque.move.name)}</p>{" "}
                     </strong>
                     <hr />
                   </div>

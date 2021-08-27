@@ -18,13 +18,20 @@ function Home() {
   const { states } = useContext(GlobalContext);
   const history = useHistory();
 
-  const [pokemons20, setPokemons20] = useState();
-  const [nextLink, setNextLink] = useState("");
+  const [pokemons20, setPokemons20] = useState()
+  const [nextLink, setNextLink] = useState('')
+  const [backLink, setBackLink] = useState("")
 
-  useEffect(() => {
-    setPokemons20(data.results);
-    setNextLink(data.next);
-  }, [data]);
+
+  useEffect(() => { 
+    console.log("nextLink",nextLink)
+    console.log("backLink",backLink)   
+    setPokemons20(data.results)
+    setBackLink(data.previous)
+    setNextLink(data.next)  
+  }, [data])
+
+
 
   const pokelist =
     pokemons20 &&
@@ -42,12 +49,35 @@ function Home() {
       });
 
   const handleButtonNext = () => {
-    axios.get(nextLink).then((res) => {
-      console.log(res);
-      setPokemons20(res.data.results);
-      setNextLink(res.data.next);
-    });
-  };
+    axios.get(nextLink)
+    .then(res => {
+      console.log(res)
+      setPokemons20(res.data.results)
+      if(res.data.next)
+      setNextLink(res.data.next)
+      if(res.data.previous)
+      setBackLink(res.data.previous)
+    })
+  }
+
+  const handleButtonBack = () => {
+    axios.get(backLink)
+    .then(res => {      
+      setPokemons20(res.data.results)
+      if(res.data.previous)
+      setBackLink(res.data.previous)
+      if(res.data.next)
+      setNextLink(res.data.next)
+
+
+    })
+  }
+
+
+
+
+
+
 
   return (
     <div>
@@ -56,10 +86,11 @@ function Home() {
         button1="Ir para Pokedex"
         onclick1={() => goToPokedexPage(history)}
       />
-      {data ? <Screen listaPokemon={pokelist} /> : <Loading />}
-      <div>
-        <button>Voltar</button>
+       <button onClick={handleButtonBack}>Voltar</button>
         <button onClick={handleButtonNext}>Próximo</button>
+      <Screen listaPokemon={pokelist} />
+      <div>
+       
       </div>
     </div>
   );
