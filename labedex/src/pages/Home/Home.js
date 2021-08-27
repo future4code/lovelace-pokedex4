@@ -7,17 +7,31 @@ import { useHistory } from "react-router-dom";
 
 import { GET_FIST_20_POKEMONS } from "../../constants/urls";
 import useRequestData from "../../hooks/useRequestData";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 
+import axios from 'axios'
+
 function Home() {
-  const [data] = useRequestData({}, GET_FIST_20_POKEMONS);
+  const [data, setData] = useRequestData({}, GET_FIST_20_POKEMONS);
   const { states } = useContext(GlobalContext)
   const history = useHistory();
 
+  const [pokemons20, setPokemons20] = useState()
+  const [nextLink, setNextLink] = useState('')
+
+
+  useEffect(() => {
+    setPokemons20(data.results)
+    setNextLink(data.next)
+
+  }, [data])
+
+
+
   const pokelist =
-    data.results &&
-    data.results
+    pokemons20 &&
+    pokemons20
       .filter(pokemon => !states.pokemons.includes(pokemon.name))
       .map((pokemon) => {
         return (
@@ -30,6 +44,26 @@ function Home() {
         );
       });
 
+
+
+
+
+
+  const handleButtonNext = () => {
+    axios.get(nextLink).then(res => {
+
+      console.log(res)
+      setPokemons20(res.data.results)
+      setNextLink(res.data.next)
+    })
+  }
+
+
+
+
+
+
+
   return (
     <div>
       <Header title="Pokelist" />
@@ -38,6 +72,10 @@ function Home() {
         onclick1={() => goToPokedexPage(history)}
       />
       <Screen listaPokemon={pokelist} />
+      <div>
+        <button>Voltar</button>
+        <button onClick={handleButtonNext}>Próximo</button>
+      </div>
     </div>
   );
 }
