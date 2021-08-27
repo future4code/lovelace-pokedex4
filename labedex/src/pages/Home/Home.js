@@ -7,21 +7,25 @@ import { useHistory } from "react-router-dom";
 
 import { GET_FIST_20_POKEMONS } from "../../constants/urls";
 import useRequestData from "../../hooks/useRequestData";
+import { useContext } from "react";
+import GlobalContext from "../../global/GlobalContext.js";
 
 function Home() {
   const [data] = useRequestData({}, GET_FIST_20_POKEMONS);
-  
-
+  const { states } = useContext(GlobalContext)
   const history = useHistory();
 
   const pokelist =
     data.results &&
-    data.results.map((pokemon) => {
+    data.results
+    .filter(pokemon => !states.pokemons.includes(pokemon.name))
+    .map((pokemon) => {
       return (
         <CardPokemon
           key={pokemon.name}
           onclickDetails={() => goToDetailsPage(history, pokemon.name)}
           pokename={pokemon.name}
+          buttonAction={'Adicionar'}
         />
       );
     });

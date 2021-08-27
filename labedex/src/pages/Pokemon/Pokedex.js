@@ -47,6 +47,7 @@ function Pokedex() {
       <CardPokemon
         key={pokemon}
         pokename={pokemon}
+        buttonAction={'Remover'}
         onclickDetails={() => goToDetailsPage(history, pokemon)}
         />
     </div> 
