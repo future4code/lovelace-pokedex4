@@ -7,7 +7,7 @@ import { goBack } from "../../routes/Coordinator.js";
 
 function Details() {
   const history = useHistory();
-  const { name } = useParams()
+  const { name } = useParams();
 
   return (
     <div>
