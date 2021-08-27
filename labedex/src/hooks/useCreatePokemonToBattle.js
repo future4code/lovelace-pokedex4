@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export function useCreatePokemon(id) {
+export function useCreatePokemon(namePokemon) {
   const [stat, setStat] = useState({});
   const [pokemonImages, setPokemonImages] = useState({});
   const [moves, setMoves] = useState([]);
@@ -11,7 +11,7 @@ export function useCreatePokemon(id) {
     const getDatas = async () => {
       try {
         const resPokemon = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${id}/`
+          `https://pokeapi.co/api/v2/pokemon/${namePokemon}/`
         );
         const allStatus = resPokemon.data.stats;
         const novoStatus = {};

@@ -10,10 +10,10 @@ import NaveBar from "../../components/NavBar/NaveBar";
 import { goToPokedexPage } from "../../routes/Coordinator";
 
 function Battle() {
-  const { idPokemon1, idPokemon2 } = useParams();
+  const { namePokemon1, namePokemon2 } = useParams();
   const history = useHistory();
-  const myPokemon = useCreatePokemon(idPokemon1);
-  const hisPokemon = useCreatePokemon(idPokemon2);
+  const myPokemon = useCreatePokemon(namePokemon1);
+  const hisPokemon = useCreatePokemon(namePokemon2);
 
   const avarage = Math.floor(100 * Math.random());
 

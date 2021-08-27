@@ -15,7 +15,7 @@ import {
   goToBattle,
 } from "../../routes/Coordinator";
 import { useHistory } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import GlobalContext from "../../global/GlobalContext.js";
 import PokeImagem from "../../components/CardPokemon/PokeImagem.js";
 
@@ -27,16 +27,16 @@ function Pokedex() {
   
   const history = useHistory();
 
-  const pushThisPokemon = pokemonName => {
-    if(!selectedPokemon1) setSelectedPokemon1(pokemonName)
-    else if(!selectedPokemon2) setSelectedPokemon2(pokemonName)
+  const pushThisPokemon = namePokemon => {
+    if(!selectedPokemon1) setSelectedPokemon1(namePokemon)
+    else if(!selectedPokemon2) setSelectedPokemon2(namePokemon)
   }
 
   const pokedexCards = states.pokemons.map((pokemon) => {
 
     let styleSelectedCard = {}
 
-    if(pokemon===selectedPokemon1 || pokemon===selectedPokemon1){
+    if(pokemon===selectedPokemon1 || pokemon===selectedPokemon2){
       styleSelectedCard = { boxShadow: 'rgb(51, 51, 255) 0px 3px 8px'}
     }
 
