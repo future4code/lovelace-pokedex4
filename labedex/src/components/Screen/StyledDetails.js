@@ -31,8 +31,16 @@ export const ContainerStats = styled.div `
   align-items: center;
   height: 60vh;
   border-radius: 10px;
-  box-shadow: #f13c20b5 0px 5px 15px;
-  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
+  
+  &:hover {
+    box-shadow: rgba(209, 40, 14) 0px 13px 27px -5px, rgba(209, 40, 14) 0px 8px 16px -8px;
+    h2 {
+      color: black;
+    }
+  }
 `;
 
 export const ContainerSoloStat = styled.div `
@@ -68,9 +76,16 @@ export const ContainerTypes = styled.div `
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: #f13c20b5 0px 5px 15px;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
+  
+  &:hover {
+    box-shadow: rgba(209, 40, 14) 0px 13px 27px -5px, rgba(209, 40, 14) 0px 8px 16px -8px;
+    h2 {
+      color: black;
+    }
+  }
   span {
     margin:10px;
     font-size: 1.2rem;
@@ -81,11 +96,18 @@ export const ContainerMoves = styled.div `
   border: 1px solid black;
   width: 300px;
   height: 50vh;
-  border-radius: 10px;
-  box-shadow: #f13c20b5 0px 5px 15px;
-  background-color: white;
-  display: flex;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    display: flex;
   flex-direction: column;
   align-items: center;
   overflow-y: scroll ;
+    
+  &:hover {
+    box-shadow: rgba(209, 40, 14) 0px 13px 27px -5px, rgba(209, 40, 14) 0px 8px 16px -8px;
+    h2 {
+      color: black;
+    }
+  }
+
 `;

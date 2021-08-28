@@ -41,7 +41,7 @@ function ScreenDetails(props) {
           {data.stats &&
             data.stats.map((estat) => {
               return (
-                <ContainerSoloStat>
+                <ContainerSoloStat key={estat.stat.name}>
                   <div>
                     <strong>
                       <span>{estat.stat.name} : </span>
@@ -78,7 +78,7 @@ function ScreenDetails(props) {
             {data.moves &&
               data.moves.map((ataque) => {
                 return (
-                  <div>
+                  <div key={ataque.move.name}>
                     <strong>
                       {" "}
                       <p>{startWithUpperCase(ataque.move.name)}</p>{" "}
