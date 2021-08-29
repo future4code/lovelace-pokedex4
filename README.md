@@ -2,7 +2,7 @@
 
 
 ## Link do Surge:  
-- https://tan-songs.surge.sh/
+- https://illustrious-weight.surge.sh/
 
 
 ## Planejamento Inicial
